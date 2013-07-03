@@ -8,7 +8,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'simple_form'
 
 group :development, :test do
-  gem 'mysql2'
+  gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
 end
 
