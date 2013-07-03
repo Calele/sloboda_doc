@@ -1,4 +1,14 @@
 SlobodaDoc::Application.routes.draw do
+  get "sloboda/projects"
+
+  get "sloboda/managers"
+
+  get "sloboda/customers"
+
+  get "sloboda/currency"
+
+  get "sloboda/areas"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
