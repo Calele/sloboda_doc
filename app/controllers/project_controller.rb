@@ -39,7 +39,7 @@ class ProjectController < ApplicationController
       end
     end
         # binding.pry
-        render :partial => "new"
+        render js: "location.reload();"
   end
 
 end

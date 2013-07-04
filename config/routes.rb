@@ -34,6 +34,8 @@ SlobodaDoc::Application.routes.draw do
 
   get "project/projects"
 
+  post "project/projects"
+
   get "project/areas"
 
   get "project/new"
