@@ -27,14 +27,7 @@ ActiveRecord::Schema.define(:version => 20130703183709) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "programmer_projects", :force => true do |t|
-    t.integer  "programmer_id"
-    t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "programmers", :force => true do |t|
+  create_table "managers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -42,7 +35,14 @@ ActiveRecord::Schema.define(:version => 20130703183709) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "managers", :force => true do |t|
+  create_table "programmer_projects", :force => true do |t|
+    t.integer  "programmer_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "programmers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"

@@ -28,32 +28,33 @@
           <td>Paid</td>
           <td>To pay</td>
           <td>Comment </td>
-          <td rowspan="<%  unless @projects_all.id.nil?  %><%= @projects_all.length + 1 %> <% end %>" style = "text-align: center; vertical-align: middle;">
+          <td rowspan="<% unless @projects_all.nil? %><%= @projects_all.length + 1 %><% end %>" style = "text-align: center; vertical-align: middle;">
           <a id="a_Add" role="button" class="btn">Add</a>
           </td>
+
         </tr>
-        <% unless @projects_all.id.nil? %>
-        <% @projects_all.each_with_index do |project, i| %>
-        <% @k = i %>
-          <tr class = "project_id" project-id = "<%= project.id.to_s %>" >
-            <td> <%= project.name %> </td>
-            <td> <%= project.client.last_name %> </td>
-            <td class = "td_programmers" > 
-              <% project.programmers.each do |programmer| %> 
-                <%= programmer.last_name + ";" %>
-              <% end %>
-            </td title="<%= project.comment %>" >
-            <td> <%= project.manager.last_name %> </td>
-            <td> <%= project.status.title %> </td>
-            <td> <%= project.date_of_start %> </td>
-            <td> <%= project.deadline %> </td>
-            <td> <%= project.totally %> </td>
-            <td> <%= project.currency.title %> </td>
-            <td> <%= project.paid %> </td>
-            <td> <%= project.to_pay %> </td>
-            <td title="<%= project.comment %>" > <%= project.comment %> </td>
-          </tr>
-        <% end %>
+        <% unless @projects_all.nil? %>
+          <% @projects_all.each_with_index do |project, i| %>
+          <% @k = i %>
+            <tr class = "project_id" project-id = "<%= project.id.to_s %>" >
+              <td> <%= project.name %> </td>
+              <td> <%= project.client.last_name %> </td>
+              <td class = "td_programmers" > 
+                <% project.programmers.each do |programmer| %> 
+                  <%= programmer.last_name + ";" %>
+                <% end %>
+              </td title="<%= project.comment %>" >
+              <td> <%= project.manager.last_name %> </td>
+              <td> <%= project.status.title %> </td>
+              <td> <%= project.date_of_start %> </td>
+              <td> <%= project.deadline %> </td>
+              <td> <%= project.totally %> </td>
+              <td> <%= project.currency.title %> </td>
+              <td> <%= project.paid %> </td>
+              <td> <%= project.to_pay %> </td>
+              <td title="<%= project.comment %>" > <%= project.comment %> </td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
     </div>
