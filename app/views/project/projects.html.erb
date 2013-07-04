@@ -33,6 +33,7 @@
           </td>
 
         </tr>
+        <% unless @projects_all.nill? %>
         <% @projects_all.each_with_index do |project, i| %>
         <% @k = i %>
           <tr class = "project_id" project-id = "<%= project.id.to_s %>" >
@@ -54,7 +55,7 @@
             <td title="<%= project.comment %>" > <%= project.comment %> </td>
           </tr>
         <% end %>
-
+        <% end %>
       </table>
     </div>
 
