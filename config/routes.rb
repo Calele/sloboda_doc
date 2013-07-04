@@ -1,13 +1,44 @@
 SlobodaDoc::Application.routes.draw do
-  get "sloboda/projects"
 
-  get "sloboda/managers"
+  get "status/new"
 
-  get "sloboda/customers"
+  get "status/update"
 
-  get "sloboda/currency"
+  get "status/delete"
 
-  get "sloboda/areas"
+  get "programmer/new"
+
+  get "programmer/update"
+
+  get "programmer/delete"
+
+  get "manager/new"
+
+  get "manager/update"
+
+  get "manager/delete"
+
+  get "currency/new"
+
+  get "currency/update"
+
+  get "currency/delete"
+
+  get "client/new"
+
+  get "client/update"
+
+  get "client/delete"
+
+  root :to => 'project#projects'
+
+  get "project/projects"
+
+  get "project/areas"
+
+  get "project/new"
+
+  post "/project/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

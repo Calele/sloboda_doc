@@ -10,4 +10,31 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.datepicker
  */
+
+ .check_boxes 
+ input{
+ 	float: left;
+ }
+
+ label{
+ }
+
+
+ table{
+ 		table-layout: fixed;
+ 		width: 1450px;
+ }
+
+ table.mytable td{
+ 	white-space: nowrap;                
+  overflow: hidden;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+
+ table.mytable td.td_programmers{
+ 	overflow: auto;
+ }

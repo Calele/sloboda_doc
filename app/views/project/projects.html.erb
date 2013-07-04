@@ -1,0 +1,90 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <div class="btn-group">
+      <button class="btn"><a>Projects</a></button>
+      <button class="btn"><a>Programmer</a></button>
+      <button class="btn"><a>Managers</a></button>
+      <button class="btn"><a>Clients</a></button>
+      <button class="btn"><a>Currency</a></button>
+      <button class="btn"><a>Projects</a></button>
+    </div>
+    <p>
+    <div id = "content" >
+      <table class = "table table-bordered mytable">
+        <tr id = "lable_tr" class='success' >
+          <td>Project name</td>
+          <td>Client</td>
+          <td>Programmer</td>
+          <td>Manager</td>
+          <td>Status</td>
+          <td>Date of Start</td>
+          <td>Deadline</td>
+          <td>Totally</td>
+          <td>Currency</td>
+          <td>Paid</td>
+          <td>To pay</td>
+          <td>Comment </td>
+          <td rowspan="<%= @projects_all.length + 1 %>" style = "text-align: center; vertical-align: middle;">
+          <a id="a_Add" role="button" class="btn">Add</a>
+          </td>
+
+        </tr>
+        <% @projects_all.each_with_index do |project, i| %>
+        <% @k = i %>
+          <tr class = "project_id" project-id = "<%= project.id.to_s %>" >
+            <td> <%= project.name %> </td>
+            <td> <%= project.client.last_name %> </td>
+            <td class = "td_programmers" > 
+              <% project.programmers.each do |programmer| %> 
+                <%= programmer.last_name + ";" %>
+              <% end %>
+            </td title="<%= project.comment %>" >
+            <td> <%= project.manager.last_name %> </td>
+            <td> <%= project.status.title %> </td>
+            <td> <%= project.date_of_start %> </td>
+            <td> <%= project.deadline %> </td>
+            <td> <%= project.totally %> </td>
+            <td> <%= project.currency.title %> </td>
+            <td> <%= project.paid %> </td>
+            <td> <%= project.to_pay %> </td>
+            <td title="<%= project.comment %>" > <%= project.comment %> </td>
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+
+
+      <div id="Add" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="AddLabel">Add/Edit level</h3>
+  </div>
+  <div class="modal-body">
+
+      <%= simple_form_for @project_new, :url => { :action => "new" }, :html => { :class => 'form-horizontal', :id => "addProjectForm", :onsubmit => "call()" }, :remote => true do |project| %>
+          <%= project.input :name, :label => "Project name:" %>
+          <%= project.input :client, :label => "Client:", :collection => @clients_all.map{|client| [client.last_name, client.id]}, :selected => "1" %>
+          <%= project.input :manager, :label => "Manager:", :collection => @managers_all.map{|manager| [manager.last_name, manager.id]}, :selected => "1" %>
+          <%= project.input :status, :label => "Status:", :collection => @statuses_all.map{|status| [status.title, status.id]}, :selected => "1" %>
+          <%= project.input :date_of_start, :as => :string, input_html: { class: 'datepicker' } %>
+          <%= project.input :deadline, :as => :string, input_html: { class: 'datepicker' } %>
+          <%= project.input :totally, :as => :float, :label => "Totally:" %>
+          <%= project.input :currency, :label => "Currency:", :collection => @currencies_all.map{|currency| [currency.title, currency.id]}, :selected => "1" %>
+          <%= project.input :paid, :as => :float, :label => "Paid:" %>
+          <%= project.input :to_pay, :as => :float, :label => "To pay:" %>
+          <%= project.input :comment, :as => :text, :label => "Comment:" %>
+          <%= project.collection_check_boxes :programmer_ids, @programmers_all, :id, :last_name, :item_wrapper_class => 'check_boxes' %>
+          <%= project.button :submit %>
+          <% end %>
+
+  </div>
+  </div>
+
+  </body>
+
+</html
