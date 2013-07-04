@@ -1,10 +1,6 @@
 SlobodaDoc::Application.routes.draw do
 
-  get "status/new"
-
-  get "status/update"
-
-  get "status/delete"
+  get "programmer/show"
 
   get "programmer/new"
 
@@ -12,17 +8,23 @@ SlobodaDoc::Application.routes.draw do
 
   get "programmer/delete"
 
+  get "manager/show"
+
   get "manager/new"
 
   get "manager/update"
 
   get "manager/delete"
 
+  get "currency/show"
+
   get "currency/new"
 
   get "currency/update"
 
   get "currency/delete"
+
+  get "client/show"
 
   get "client/new"
 

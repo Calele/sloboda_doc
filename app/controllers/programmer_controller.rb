@@ -1,4 +1,7 @@
 class ProgrammerController < ApplicationController
+  def show
+  end
+
   def new
   end
 

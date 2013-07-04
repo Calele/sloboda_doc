@@ -5,12 +5,11 @@
   <body>
 
     <div class="btn-group">
-      <button class="btn"><a>Projects</a></button>
-      <button class="btn"><a>Programmer</a></button>
-      <button class="btn"><a>Managers</a></button>
-      <button class="btn"><a>Clients</a></button>
-      <button class="btn"><a>Currency</a></button>
-      <button class="btn"><a>Projects</a></button>
+      <button class="btn"><%= link_to "Programmers", controller: "programmer", action: "show" %></button>
+      <button class="btn"><%= link_to "Managers", controller: "manager", action: "show" %></button>
+      <button class="btn"><%= link_to "Clients", controller: "client", action: "show" %></button>
+      <button class="btn"><%= link_to "Currencies", controller: "currency", action: "show" %></button>
+      <button class="btn"><%= link_to "Projects", controller: "project", action: "projects" %></button>
     </div>
     <p>
     <div id = "content" >

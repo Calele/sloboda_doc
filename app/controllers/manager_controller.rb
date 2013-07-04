@@ -1,4 +1,7 @@
 class ManagerController < ApplicationController
+  def show
+  end
+
   def new
   end
 
