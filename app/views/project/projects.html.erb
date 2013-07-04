@@ -28,12 +28,11 @@
           <td>Paid</td>
           <td>To pay</td>
           <td>Comment </td>
-          <td rowspan="<%= @projects_all.length + 1 %>" style = "text-align: center; vertical-align: middle;">
+          <td rowspan="<%  unless @projects_all.id.nil?  %><%= @projects_all.length + 1 %> <% end %>" style = "text-align: center; vertical-align: middle;">
           <a id="a_Add" role="button" class="btn">Add</a>
           </td>
-
         </tr>
-        <% unless @projects_all.nill? %>
+        <% unless @projects_all.id.nil? %>
         <% @projects_all.each_with_index do |project, i| %>
         <% @k = i %>
           <tr class = "project_id" project-id = "<%= project.id.to_s %>" >
